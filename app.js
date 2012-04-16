@@ -25,7 +25,10 @@ app.configure('development', function(){
 });
 
 app.get('/', routes.index);
+app.get('/users', function(req, res){
+    res.render('users/index.jade', {test_var:'Test Var'});
+});
 
-http.createServer(app).listen(3000);
+http.createServer(app).listen(process.env.PORT);
 
-console.log("Express server listening on port 3000");
+console.log("Express server listening on port " + process.env.PORT);
